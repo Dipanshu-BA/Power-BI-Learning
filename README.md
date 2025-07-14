@@ -101,57 +101,58 @@ SWITCH(TRUE(),
 
 IF(AND([Profit] > 0, [Sales] > 1000), "Good", "Bad")
 
+```
 
 ## ✏️ Text Functions
-
+```dax
 = CONCATENATE(FirstName, LastName)
 = LEFT(ProductCode, 3)
 = RIGHT(EmployeeID, 4)
 = MID(Code, 2, 3)
 = FORMAT(Date, "MMM-YYYY")
 = TRIM(Name)
-
+```
 
 ## 📅 Date & Time Functions
-
+```dax
 TODAY() — returns current date  
 YEAR(OrderDate) — returns year  
 DATEDIFF(StartDate, EndDate, DAY)  
 EOMONTH(Date, -1) — end of last month  
-
+```
 
 ## 🔗 Joining Tables with RELATED
-
+```
 ProductName = RELATED(Products[ProductName])
 Revenue = Sales[Qty] * RELATED(Products[Price])
-
+```
 
 ## 🧮 CALCULATE Function
-
+```
 High Sales = CALCULATE(SUM(Sales[Amount]), Sales[Amount] > 1000)
 Sales for North = CALCULATE([Total Sales], Region[RegionName] = "North")
-
+```
 
 ## 🚫 ALL Function
-
+```
 Total Sales All = CALCULATE(SUM(Sales[Amount]), ALL(Sales))
 % of Total = DIVIDE([Total Sales], CALCULATE([Total Sales], ALL(Products)))
-
+```
 
 ## 🔍 FILTER Function
-
+```
 High Value Orders = 
 CALCULATE(
     [Total Sales],
     FILTER(Sales, Sales[Amount] > 1000)
 )
-
+```
 
 ## 🔁 Iterator Functions (SUMX, RANKX, etc.)
-
+```
 Total Revenue = SUMX(Sales, Sales[Quantity] * Sales[UnitPrice])
 Product Rank = RANKX(ALL(Products), [Total Sales], , DESC)
 Average Order = AVERAGEX(Sales, Sales[Amount])
-
+```
 
 
