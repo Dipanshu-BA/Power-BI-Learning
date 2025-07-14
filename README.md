@@ -90,7 +90,7 @@ Sales Last Year = CALCULATE([Total Sales], SAMEPERIODLASTYEAR('Date'[Date]))
 
 ## 🧠 Conditional & Logical Functions
 
-
+```dax
 IF(Sales[Amount] > 1000, "High", "Low")
 
 SWITCH(TRUE(),
